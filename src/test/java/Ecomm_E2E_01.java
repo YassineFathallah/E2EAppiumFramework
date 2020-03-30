@@ -17,7 +17,7 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class Ecomm_E2E_01 extends BaseClass {
-    AndroidDriver<AndroidElement> driver;
+    public static AndroidDriver<AndroidElement> driver;
 
     @BeforeTest
     public void setup() throws IOException {
