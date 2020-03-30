@@ -4,6 +4,9 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
@@ -31,5 +34,12 @@ public class BaseClass {
         capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
         driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         return driver;
+    }
+
+    public static void getScreenshot(String s) throws IOException
+    {
+        File scrfile=	((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(scrfile,new File(System.getProperty("user.dir")+"/screenshots/"+s+ ".png"));
+
     }
 }
