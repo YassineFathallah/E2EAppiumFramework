@@ -3,6 +3,7 @@
 <suite name="Suite">
     <listeners>
         <listener class-name="Listeners.ScreenshotsListeners"/>
+        <listener class-name="Listeners.ExtentReporterNG"/>
     </listeners>
 
     <test name="Test">
